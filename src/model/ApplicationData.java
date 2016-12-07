@@ -2,12 +2,14 @@ package model;
 
 import model.CD;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ApplicationData {
 	ArrayList<CD> cds = new ArrayList<CD>(); //list of all cds, sorted by genre, then by artist, then by title
-	ArrayList<Integer> genreMap = new ArrayList<Integer>();
-	ArrayList<ArrayList<Integer>> artistMap = new ArrayList<ArrayList<Integer>>();
+	ArrayList<Integer> genreMap = new ArrayList<Integer>(); //first index of each genre
+	ArrayList<ArrayList<Integer>> artistMap = new ArrayList<ArrayList<Integer>>(); //first index of each artist in each genre
+	HashMap<String, User> users = new HashMap<String, User>();
 	
 	public ApplicationData() {
 		
@@ -52,6 +54,14 @@ public class ApplicationData {
 		}
 		
 		this.cds = cds;
+	}
+	
+	public boolean addUser(User user) { //returns false if the add fails
+		if(users.containsValue(user)) {
+			return false;
+		}
+		users.put(user.getUsername(), user);
+		return true;
 	}
 	
 	public void printCDs() {
