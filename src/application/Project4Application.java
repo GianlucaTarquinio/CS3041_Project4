@@ -17,6 +17,7 @@ import org.xml.sax.SAXException;
 
 import model.ApplicationData;
 import model.CD;
+import views.LoadingScreen;
 
 @SuppressWarnings("serial")
 public class Project4Application extends JFrame {
@@ -29,6 +30,7 @@ public class Project4Application extends JFrame {
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Project 4");
+		setCurrentScreen(new LoadingScreen(this));
 	}
 	
 	public void start() {
@@ -95,6 +97,16 @@ public class Project4Application extends JFrame {
 	
 	public void quit() {
 		this.dispose();
+	}
+	
+	public void setCurrentScreen(JPanel view) {
+		if(currentView != null) {
+			this.remove(currentView);
+		}
+		currentView = view;
+		this.setContentPane(currentView);
+		currentView.setVisible(true);
+		this.setVisible(true);
 	}
 	
 }
