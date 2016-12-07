@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<catalog>
+	
+	<cd>
+		<genre>Power Metal</genre>
+		<artist>Dragonforce</artist>
+		<title>Inhuman Rampage</title>
+		<cost>11777</cost>
+	</cd>
+	
+	<cd>
+		<genre>Power Metal</genre>
+		<artist>Dragonforce</artist>
+		<title>Valley of the Damned</title>
+		<cost>11777</cost>
+	</cd>
+	
+	<cd>
+		<genre>Power Metal</genre>
+		<artist>Dragonforce</artist>
+		<title>The Power Within</title>
+		<cost>11777</cost>
+	</cd>
+	
+	<cd>
+		<genre>Power Metal</genre>
+		<artist>Dragonforce</artist>
+		<title>Sonic Firestorm</title>
+		<cost>11777</cost>
+	</cd>
+	
+	<cd>
+		<genre>Power Metal</genre>
+		<artist>Gamma Ray</artist>
+		<title>No World Order</title>
+		<cost>11000</cost>
+	</cd>
+	
+	<cd>
+		<genre>Power Metal</genre>
+		<artist>Ancient Bards</artist>
+		<title>The Alliance of the Kings</title>
+		<cost>10500</cost>
+	</cd>
+	
+	<cd>
+		<genre>Country</genre>
+		<artist>Luke Bryan</artist>
+		<title>Doin' My thing</title>
+		<cost>857</cost>
+	</cd>
+	
+	<cd>
+		<genre>Rap</genre>
+		<artist>Jay-Z</artist>
+		<title>The Blueprint 3</title>
+		<cost>39</cost>
+	</cd>
+	
+	<cd>
+		<genre>Blues</genre>
+		<artist>Duke Robillard</artist>
+		<title>Dukes Blue</title>
+		<cost>857</cost>
+	</cd>
+
+	<cd>
+		<genre>Alternative</genre>
+		<artist>Ryan Gosling</artist>
+		<title>Dead Man's Bones</title>
+		<cost>504</cost>
+	</cd>
+	
+	<cd>
+		<genre>Jazz</genre>
+		<artist>Jamie Cullum</artist>
+		<title>The Pursuit</title>
+		<cost>642</cost>
+	</cd>
+	
+	<cd>
+		<genre>Rap</genre>
+		<artist>Lyl Wayne</artist>
+		<title>The Carter III</title>
+		<cost>145</cost>
+	</cd>
+
+	<cd>
+		<genre>Jazz</genre>
+		<artist>Miles Davis</artist>
+		<title>Kind of Blue</title>
+		<cost>958</cost>
+	</cd>
+	
+	<cd>
+		<genre>Alternative</genre>
+		<artist>Elverum</artist>
+		<title> Mount Eerie 'Wind's Poem'</title>
+		<cost>453</cost>
+	</cd>
+	
+	<cd>
+		<genre>Folk</genre>
+		<artist>Mumford and Sons</artist>
+		<title>Sigh No More</title>
+		<cost>634</cost>
+	</cd>
+	
+	<cd>
+		<genre>World</genre>
+		<artist>Celtic Thunder</artist>
+		<title>Its Entertainment</title>
+		<cost>857</cost>
+	</cd>
+	
+	<cd>
+		<genre>Children</genre>
+		<artist>Cliff Chenfeld and Craig Balsam</artist>
+		<title>Kidz Bop 17</title>
+		<cost>10000</cost>
+	</cd>
+	
+	<cd>
+		<genre>Reggae</genre>
+		<artist>Bob Marley</artist>
+		<title>The Legend : Best of Bob Marley and the Wailers Bob Marley</title>
+		<cost>4234</cost>
+	</cd>
+	
+	<cd>
+		<genre>Country</genre>
+		<artist>Taylor Swift</artist>
+		<title>Fearless</title>
+		<cost>1</cost>
+	</cd>	
+		
+	<cd>
+		<genre>Country</genre>
+		<artist>Miranda Lambert</artist>
+		<title>Revolution</title>
+		<cost>543</cost>
+	</cd>
+
+</catalog>
