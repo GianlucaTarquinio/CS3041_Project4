@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ApplicationData {
-	ArrayList<CD> cds = new ArrayList<CD>();
+	ArrayList<CD> cds = new ArrayList<CD>(); //list of all cds, sorted by genre, then by artist, then by title
 	ArrayList<Integer> genreMap = new ArrayList<Integer>();
 	ArrayList<ArrayList<Integer>> artistMap = new ArrayList<ArrayList<Integer>>();
 	
@@ -25,7 +25,8 @@ public class ApplicationData {
 			}
 		}
 		
-		List<CD> sublist; //next, organize by artist
+		//next, organize by artist
+		List<CD> sublist;
 		int toIndex;
 		for(int i = 0; i < genreMap.size(); i++) {
 			artistMap.add(new ArrayList<Integer>());
@@ -38,9 +39,12 @@ public class ApplicationData {
 			sublist.sort(new CompareByArtist());
 			
 			String lastArtist = null, artist = null;
+			int fromIndex = 0;
 			for(int j = 0; j < sublist.size(); j++) { //record indices where the artist changes in the sublists for each genre
 				artist = sublist.get(j).getArtist();
 				if(!artist.equals(lastArtist)) {
+					sublist.subList(fromIndex, j).sort(new CompareByTitle()); //sort by name within the artist sublists
+					fromIndex = j;
 					artistMap.get(i).add(j);
 					lastArtist = artist;
 				}
