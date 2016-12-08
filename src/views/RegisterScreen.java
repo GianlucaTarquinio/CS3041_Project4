@@ -28,6 +28,7 @@ public class RegisterScreen extends JPanel implements IView {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	JLabel lblNewLabel_2, lblNewLabel_3, lblThisEmailIs, lblEmailsDoNot;
+	JButton btnNewButton;
 	
 	
 	public RegisterScreen(Project4Application app) {
@@ -122,7 +123,7 @@ public class RegisterScreen extends JPanel implements IView {
 		textField_4.setBounds(421, 372, 350, 35);
 		add(textField_4);
 		
-		JButton btnNewButton = new JButton("Create Account");
+		btnNewButton = new JButton("Create Account");
 		btnNewButton.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 		btnNewButton.setBounds(229, 426, 542, 55);
 		add(btnNewButton);
@@ -156,10 +157,18 @@ public class RegisterScreen extends JPanel implements IView {
 	}
 	
 	public void setWarnings(boolean uTaken, boolean pMatch, boolean eTaken, boolean eMatch) {
-		this.uTaken = uTaken;
-		this.pMatch = pMatch;
-		this.eTaken = eTaken;
-		this.eMatch = eMatch;
+		remove(lblNewLabel_2);
+		remove(lblNewLabel_3);
+		remove(lblThisEmailIs);
+		remove(lblEmailsDoNot);
+		if(uTaken) add(lblNewLabel_3);
+		if(pMatch) add(lblNewLabel_2);
+		if(eTaken) add(lblThisEmailIs);
+		if(eMatch) add(lblEmailsDoNot);
+	}
+	
+	public void setButtonStatus(boolean status) {
+		btnNewButton.setEnabled(status);
 	}
 	
 	@Override

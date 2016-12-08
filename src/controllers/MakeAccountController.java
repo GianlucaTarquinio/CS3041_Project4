@@ -17,8 +17,16 @@ public class MakeAccountController implements ActionListener {
 		this.regView = regView;
 	}
 	
+	public void failed(boolean uTaken, boolean pMatch, boolean eTaken, boolean eMatch) {
+		regView.setWarnings(uTaken, pMatch, eTaken, eMatch);
+		regView.update();
+		regView.setButtonStatus(true);
+		app.setCurrentScreen(regView);
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		regView.setButtonStatus(false);
 		String[] inputVals = regView.getInputVals();//{username, pass, confirmPass, FirstName, LastName, email, confirmEmail}
 		boolean uTaken = false, pMatch = false, eTaken = false, eMatch = false;
 		if(!inputVals[1].equals(inputVals[2])) {
@@ -28,9 +36,7 @@ public class MakeAccountController implements ActionListener {
 			eMatch = true;
 		}
 		if(pMatch || eMatch) {
-			regView.setWarnings(uTaken, pMatch, eTaken, eMatch);
-			regView.update();
-			app.setCurrentScreen(regView);
+			failed(uTaken, pMatch, eTaken, eMatch);
 		} else {
 			short result = app.getAppData().addUser(new User(inputVals[0], inputVals[1], inputVals[3], inputVals[4], inputVals[5]));
 			if(result == 0) {
@@ -39,8 +45,7 @@ public class MakeAccountController implements ActionListener {
 			} else {
 				uTaken = (result & 1) > 0;
 				eTaken = (result & 2) > 0;
-				regView.setWarnings(uTaken, pMatch, eTaken, eMatch);
-				app.setCurrentScreen(regView);
+				failed(uTaken, pMatch, eTaken, eMatch);
 			}
 		}
 	}

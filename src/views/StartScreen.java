@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import application.Project4Application;
+import controllers.LogOutController;
 import controllers.MakeAccountButtonController;
 import model.User;
 import javax.swing.SwingConstants;
@@ -25,20 +26,42 @@ public class StartScreen extends JPanel implements IView {
 		setBackground(new Color(230, 230, 230));
 		setLayout(null);
 		
-		JLabel lblYouAreNot = new JLabel("You are not logged in");
+		String str = "You are not logged in";
+		if(user != null) {
+			str = "Welcome, " + user.getFirstName();
+		}
+		JLabel lblYouAreNot = new JLabel(str);
 		lblYouAreNot.setBounds(20, 6, 157, 16);
 		add(lblYouAreNot);
 		
-		JButton lblMakeAnAccount = new JButton("Make an account");
+		str = "Make an account";
+		if(user != null) {
+			str = "Manage account";
+		}
+		JButton lblMakeAnAccount = new JButton(str);
 		lblMakeAnAccount.setForeground(new Color(0, 0, 0));
 		lblMakeAnAccount.setBounds(776, 7, 133, 16);
 		add(lblMakeAnAccount);
-		lblMakeAnAccount.addActionListener(new MakeAccountButtonController(app));
+		if(user != null) {
+			
+		} else {
+			lblMakeAnAccount.addActionListener(new MakeAccountButtonController(app));
+		}
 		
+		str = "Log in";
+		if(user != null) {
+			str = "Log out";
+		}
 		JButton lblLogIn = new JButton("Log in");
 		lblLogIn.setForeground(new Color(0, 0, 0));
 		lblLogIn.setBounds(920, 7, 60, 16);
 		add(lblLogIn);
+		if(user != null) {
+			lblLogIn.addActionListener(new LogOutController(app));
+		} else {
+			
+		}
+		
 		
 		JLabel lblChoose = new JLabel("Order from our large collection of CDs!");
 		lblChoose.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
