@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import application.Project4Application;
+import views.StartScreen;
 
 public class LogOutController implements ActionListener {
 	Project4Application app;
@@ -14,8 +15,8 @@ public class LogOutController implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
+		app.setActiveUser(null);
+		app.setCurrentScreen(new StartScreen(app));
 	}
 
 }

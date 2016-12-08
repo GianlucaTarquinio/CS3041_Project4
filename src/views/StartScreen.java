@@ -52,7 +52,7 @@ public class StartScreen extends JPanel implements IView {
 		if(user != null) {
 			str = "Log out";
 		}
-		JButton lblLogIn = new JButton("Log in");
+		JButton lblLogIn = new JButton(str);
 		lblLogIn.setForeground(new Color(0, 0, 0));
 		lblLogIn.setBounds(920, 7, 60, 16);
 		add(lblLogIn);
