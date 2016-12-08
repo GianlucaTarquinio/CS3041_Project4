@@ -65,8 +65,18 @@ public class LogInView extends JPanel implements IView {
 		btnNewButton.setBounds(229, 240, 542, 55);
 		add(btnNewButton);
 		btnNewButton.addActionListener(new LogInController(app, this));
+		 
+		//This would be implemented in the complete interface
+		JButton lblNewLabel_3 = new JButton("Forgot Username");
+		lblNewLabel_3.setBounds(772, 168, 122, 16);
+		add(lblNewLabel_3);
 		
-		lblNewLabel_2 = new JLabel("Information did not match existing user");
+		//This would be implemented in the complete interface
+		JButton btnForgotPassword = new JButton("Forgot Password");
+		btnForgotPassword.setBounds(772, 209, 122, 16);
+		add(btnForgotPassword);
+		
+		lblNewLabel_2 = new JLabel("Login credentials rejected");
 		lblNewLabel_2.setForeground(new Color(255, 0, 0));
 		lblNewLabel_2.setBounds(425, 136, 252, 16);
 	}

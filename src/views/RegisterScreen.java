@@ -26,7 +26,7 @@ public class RegisterScreen extends JPanel implements IView {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
-	JLabel lblNewLabel_2, lblNewLabel_3, lblThisEmailIs, lblEmailsDoNot;
+	JLabel lblNewLabel_2, lblNewLabel_3, lblThisEmailIs, lblEmailsDoNot, lblAllFieldsMust;
 	JButton btnNewButton;
 	
 	
@@ -128,6 +128,10 @@ public class RegisterScreen extends JPanel implements IView {
 		add(btnNewButton);
 		btnNewButton.addActionListener(new MakeAccountController(app, this));
 		
+		lblAllFieldsMust = new JLabel("All fields must be filled in");
+		lblAllFieldsMust.setForeground(new Color(255, 0, 0));
+		lblAllFieldsMust.setBounds(425, 108, 168, 16);
+		
 		lblNewLabel_2 = new JLabel("Passwords do not match");
 		lblNewLabel_2.setForeground(new Color(255, 0, 0));
 		lblNewLabel_2.setBounds(775, 217, 161, 16);
@@ -150,11 +154,13 @@ public class RegisterScreen extends JPanel implements IView {
 			textField_1.getText(), textField_2.getText(), textField_3.getText(), textField_4.getText()};
 	}
 	
-	public void setWarnings(boolean uTaken, boolean pMatch, boolean eTaken, boolean eMatch) {
+	public void setWarnings(boolean empty, boolean uTaken, boolean pMatch, boolean eTaken, boolean eMatch) {
+		remove(lblAllFieldsMust);
 		remove(lblNewLabel_2);
 		remove(lblNewLabel_3);
 		remove(lblThisEmailIs);
 		remove(lblEmailsDoNot);
+		if(empty) add(lblAllFieldsMust);
 		if(uTaken) add(lblNewLabel_3);
 		if(pMatch) add(lblNewLabel_2);
 		if(eTaken) add(lblThisEmailIs);
