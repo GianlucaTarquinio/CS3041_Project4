@@ -27,6 +27,7 @@ public class ListingView extends JPanel implements IView {
 		int size = strList.size();
 		int height = 100;
 		int width = 800;
+		
 		int scrollbarWidth = 10;
 		scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(scrollbarWidth, 0));
 		setPreferredSize(new Dimension(width-scrollbarWidth-5, size*height));
@@ -46,6 +47,7 @@ public class ListingView extends JPanel implements IView {
 		for(int i = 0; i < buttons.size(); i++) {
 			buttons.get(i).setEnabled(state);
 		}
+		update();
 	}
 	
 	@Override

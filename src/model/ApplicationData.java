@@ -107,6 +107,27 @@ public class ApplicationData {
 		return artists;
 	}
 	
+	public ArrayList<String> getTitlesInArtistInGenre(int genreIndex, int artistIndex) {
+		ArrayList<String> titles = new ArrayList<String>();
+		int baseIndex = genreMap.get(genreIndex);
+		ArrayList<Integer> localArtistMap = artistMap.get(genreIndex);
+		int startIndex = baseIndex + localArtistMap.get(artistIndex);
+		int endIndex;
+		if(artistIndex + 1 < localArtistMap.size()) {
+			endIndex = baseIndex + localArtistMap.get(artistIndex + 1);
+		} else {
+			if(genreIndex + 1 < genreMap.size()) {
+				endIndex = genreMap.get(genreIndex + 1);
+			} else {
+				endIndex = cds.size();
+			}
+		}
+		for(int i = startIndex; i < endIndex; i++) {
+			titles.add(cds.get(i).getTitle());
+		}
+		return titles;
+	}
+	
 	public void printCDs() {
 		System.out.println("Number of CDs: " + cds.size());
 		System.out.println("CDs:");

@@ -2,6 +2,7 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import application.Project4Application;
 import views.ListingView;
@@ -20,9 +21,9 @@ public class ArtistButtonController implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String genre = app.getAppData().getGenres().get(genreIndex);
-		String artist = app.getAppData().getArtistsInGenre(genreIndex).get(artistIndex);
-		System.out.println(genre + ", " + artist);
+		//listingView.setButtonStates(false);
+		ArrayList<String> titles = app.getAppData().getTitlesInArtistInGenre(genreIndex, artistIndex);
+		System.out.println(titles.toString());
 	}
 
 }
