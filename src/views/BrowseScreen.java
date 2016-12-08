@@ -36,7 +36,7 @@ public class BrowseScreen extends JPanel implements IView {
 		scrollPane.setBounds(100, 150, 800, 500);
 		add(scrollPane);
 		
-		panel = new ListingView(app);
+		panel = new ListingView(app, scrollPane);
 		scrollPane.setViewportView(panel);
 	}
 	
