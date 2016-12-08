@@ -1,6 +1,5 @@
 package application;
 
-import java.awt.Rectangle;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -17,27 +16,33 @@ import org.xml.sax.SAXException;
 
 import model.ApplicationData;
 import model.CD;
+import model.User;
 import views.LoadingScreen;
+import views.StartScreen;
 
 @SuppressWarnings("serial")
 public class Project4Application extends JFrame {
+	ApplicationData appData;
 	JPanel currentView;
+	User activeUser;
 
 	public Project4Application() {
 		super();
-		Rectangle screenBounds = java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
-		this.setSize(screenBounds.width, screenBounds.height);
+		//Rectangle screenBounds = java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
+		//this.setSize(screenBounds.width, screenBounds.height);
+		this.setSize(1000, 700);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Project 4");
+		activeUser = null;
 		setCurrentScreen(new LoadingScreen(this));
 	}
 	
 	public void start() {
-		ApplicationData appData = new ApplicationData();
+		appData = new ApplicationData();
 		ArrayList<CD> cds = getCdData("project4.xml");
 		appData.setCDs(cds);
-		appData.printCDs();
+		setCurrentScreen(new StartScreen(this));
 	}
 	
 	public ArrayList<CD> getCdData(String path) {
@@ -95,6 +100,10 @@ public class Project4Application extends JFrame {
 		return Integer.parseInt(getTextValue(e, tagName));
 	}
 	
+	public ApplicationData getAppData() {
+		return appData;
+	}
+	
 	public void quit() {
 		this.dispose();
 	}
@@ -109,4 +118,11 @@ public class Project4Application extends JFrame {
 		this.setVisible(true);
 	}
 	
+	public User getActiveUser() {
+		return activeUser;
+	}
+	
+	public void setActiveUser(User u) {
+		activeUser = u;
+	}
 }

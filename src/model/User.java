@@ -1,12 +1,13 @@
 package model;
 
 public class User {
-	String username, password, name, email;
+	String username, password, firstName, lastName, email;
 	
-	public User(String username, String password, String name, String email) {
+	public User(String username, String password, String firstName, String lastName, String email) {
 		this.username = username;
 		this.password = password; //In a complete implementation the password would be hashed
-		this.name = name;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 	}
 	
@@ -22,12 +23,20 @@ public class User {
 		this.username = username;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String name) {
+		firstName = name;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public void setLastName(String name) {
+		lastName = name;
 	}
 
 	public String getEmail() {

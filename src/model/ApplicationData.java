@@ -2,6 +2,7 @@ package model;
 
 import model.CD;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -56,12 +57,32 @@ public class ApplicationData {
 		this.cds = cds;
 	}
 	
-	public boolean addUser(User user) { //returns false if the add fails
-		if(users.containsValue(user)) {
-			return false;
+	/** Returns 0 on success, 1 if username is taken, 2 if email is taken, and 3 if both are taken
+	 */
+	public short addUser(User user) {
+		short retval = 0;
+		if(users.containsKey(user.getUsername())) {
+			retval |= 1;
 		}
-		users.put(user.getUsername(), user);
-		return true;
+		Collection<User> userList = users.values();
+		for(User u : userList) {
+			if(u.getEmail().equals(user.getEmail())) {
+				retval |= 2;
+				break;
+			}
+		}
+		if(retval == 0) {
+			users.put(user.getUsername(), user);
+		}
+		return retval;
+	}
+	
+	public User getUser(String username) {
+		if(users.containsKey(username)) {
+			return users.get(username);
+		} else {
+			return null;
+		}
 	}
 	
 	public void printCDs() {
