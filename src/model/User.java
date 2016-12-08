@@ -1,7 +1,10 @@
 package model;
 
+import java.util.ArrayList;
+
 public class User {
 	String username, password, firstName, lastName, email;
+	ArrayList<CD> wishlist;
 	
 	public User(String username, String password, String firstName, String lastName, String email) {
 		this.username = username;
@@ -9,6 +12,7 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		wishlist = new ArrayList<CD>();
 	}
 	
 	public boolean verifyPassword(String password) {

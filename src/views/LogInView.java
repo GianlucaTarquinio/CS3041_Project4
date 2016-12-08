@@ -92,6 +92,7 @@ public class LogInView extends JPanel implements IView {
 	
 	public void setButtonStatus(boolean state) {
 		btnNewButton.setEnabled(state);
+		update();
 	}
 	
 	

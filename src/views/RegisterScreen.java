@@ -169,6 +169,7 @@ public class RegisterScreen extends JPanel implements IView {
 	
 	public void setButtonStatus(boolean status) {
 		btnNewButton.setEnabled(status);
+		update();
 	}
 	
 	@Override

@@ -89,6 +89,24 @@ public class ApplicationData {
 		return false;
 	}
 	
+	public ArrayList<String> getGenres() {
+		ArrayList<String> genres = new ArrayList<String>();
+		for(int i = 0; i < genreMap.size(); i++) {
+			genres.add(cds.get(genreMap.get(i)).getGenre());
+		}
+		return genres;
+	}
+	
+	public ArrayList<String> getArtistsInGenre(int genreIndex) {
+		ArrayList<String> artists = new ArrayList<String>();
+		int baseIndex = genreMap.get(genreIndex);
+		ArrayList<Integer> localArtistMap = artistMap.get(genreIndex);
+		for(int i = 0; i < localArtistMap.size(); i++) {
+			artists.add(cds.get(baseIndex + localArtistMap.get(i)).getArtist());
+		}
+		return artists;
+	}
+	
 	public void printCDs() {
 		System.out.println("Number of CDs: " + cds.size());
 		System.out.println("CDs:");

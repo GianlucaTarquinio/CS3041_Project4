@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import application.Project4Application;
+import controllers.BrowseButtonController;
 import controllers.LogInButtonController;
 import controllers.LogOutController;
 import controllers.MakeAccountButtonController;
@@ -20,6 +21,7 @@ import java.awt.event.ActionEvent;
 @SuppressWarnings("serial")
 public class StartScreen extends JPanel implements IView {
 	Project4Application app;
+	JButton btnNewButton;
 	
 	public StartScreen(Project4Application app) {
 		this.app = app;
@@ -69,14 +71,11 @@ public class StartScreen extends JPanel implements IView {
 		lblChoose.setBounds(118, 60, 764, 74);
 		add(lblChoose);
 		
-		JButton btnNewButton = new JButton("Browse");
+		btnNewButton = new JButton("Browse");
 		btnNewButton.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnNewButton.setBounds(150, 168, 700, 65);
 		add(btnNewButton);
+		btnNewButton.addActionListener(new BrowseButtonController(app, this));
 		
 		JButton btnSearch_1 = new JButton("Search");
 		btnSearch_1.addActionListener(new ActionListener() {
@@ -122,6 +121,11 @@ public class StartScreen extends JPanel implements IView {
 		}
 	}
 
+	public void setBrowseButtonStatus(boolean status) {
+		btnNewButton.setEnabled(status);
+		update();
+	}
+	
 	@Override
 	public void update() {
 		revalidate();
