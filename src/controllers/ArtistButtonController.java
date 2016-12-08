@@ -21,9 +21,13 @@ public class ArtistButtonController implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//listingView.setButtonStates(false);
+		listingView.setButtonStates(false);
 		ArrayList<String> titles = app.getAppData().getTitlesInArtistInGenre(genreIndex, artistIndex);
-		System.out.println(titles.toString());
+		ArrayList<ActionListener> actions = new ArrayList<ActionListener>();
+		for(int i = 0; i < titles.size(); i++) {
+			actions.add(new CdButtonController(app, genreIndex, artistIndex, i, listingView));
+		}
+		listingView.setList(titles, actions);
 	}
 
 }
