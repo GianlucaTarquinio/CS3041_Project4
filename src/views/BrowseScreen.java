@@ -9,8 +9,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import application.Project4Application;
+import controllers.ArtistButtonController;
+import controllers.BrowseButtonController;
+import controllers.GenreButtonController;
 import controllers.GoToMainController;
 import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class BrowseScreen extends JPanel implements IView {
@@ -43,6 +47,7 @@ public class BrowseScreen extends JPanel implements IView {
 	public ListingView getListingView() {
 		return panel;
 	}
+	
 	
 	@Override
 	public void update() {
