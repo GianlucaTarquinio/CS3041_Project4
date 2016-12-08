@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import application.Project4Application;
+import controllers.LogInButtonController;
 import controllers.LogOutController;
 import controllers.MakeAccountButtonController;
 import model.User;
@@ -42,10 +43,10 @@ public class StartScreen extends JPanel implements IView {
 		lblMakeAnAccount.setForeground(new Color(0, 0, 0));
 		lblMakeAnAccount.setBounds(776, 7, 133, 16);
 		add(lblMakeAnAccount);
-		if(user != null) {
-			
-		} else {
+		if(user == null) {
 			lblMakeAnAccount.addActionListener(new MakeAccountButtonController(app));
+		} else {
+			//account management would be implemented in the complete interface
 		}
 		
 		str = "Log in";
@@ -59,7 +60,7 @@ public class StartScreen extends JPanel implements IView {
 		if(user != null) {
 			lblLogIn.addActionListener(new LogOutController(app));
 		} else {
-			
+			lblLogIn.addActionListener(new LogInButtonController(app));
 		}
 		
 		
@@ -123,7 +124,8 @@ public class StartScreen extends JPanel implements IView {
 
 	@Override
 	public void update() {
-
+		revalidate();
+		repaint();
 	}
 
 	@Override

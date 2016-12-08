@@ -27,7 +27,7 @@ public class MakeAccountController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		regView.setButtonStatus(false);
-		String[] inputVals = regView.getInputVals();//{username, pass, confirmPass, FirstName, LastName, email, confirmEmail}
+		String[] inputVals = regView.getInputVals();//[username, pass, confirmPass, FirstName, LastName, email, confirmEmail]
 		boolean uTaken = false, pMatch = false, eTaken = false, eMatch = false;
 		if(!inputVals[1].equals(inputVals[2])) {
 			pMatch = true;

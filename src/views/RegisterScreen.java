@@ -19,7 +19,6 @@ import javax.swing.JTextField;
 @SuppressWarnings("serial")
 public class RegisterScreen extends JPanel implements IView {
 	Project4Application app;
-	boolean uTaken = false, pMatch = false, eTaken = false, eMatch = false;
 	private JPasswordField passwordField;
 	private JTextField textField;
 	private JPasswordField passwordField_1;
@@ -130,30 +129,25 @@ public class RegisterScreen extends JPanel implements IView {
 		btnNewButton.addActionListener(new MakeAccountController(app, this));
 		
 		lblNewLabel_2 = new JLabel("Passwords do not match");
-		lblNewLabel_2.setEnabled(pMatch);
 		lblNewLabel_2.setForeground(new Color(255, 0, 0));
 		lblNewLabel_2.setBounds(775, 217, 161, 16);
 		
 		lblNewLabel_3 = new JLabel("This username is taken");
-		lblNewLabel_3.setEnabled(uTaken);
 		lblNewLabel_3.setForeground(new Color(255, 0, 0));
 		lblNewLabel_3.setBounds(775, 135, 151, 16);
 		
 		lblThisEmailIs = new JLabel("This email is taken");
-		lblThisEmailIs.setEnabled(eTaken);
 		lblThisEmailIs.setForeground(Color.RED);
 		lblThisEmailIs.setBounds(775, 340, 151, 16);
 		
 		lblEmailsDoNot = new JLabel("Emails do not match");
-		lblEmailsDoNot.setEnabled(eMatch);
 		lblEmailsDoNot.setForeground(Color.RED);
 		lblEmailsDoNot.setBounds(775, 381, 151, 16);
 	}
 	
 	public String[] getInputVals() {
-		String[] retval = {textField.getText(), new String(passwordField_1.getPassword()), new String(passwordField.getPassword()), 
-				textField_1.getText(), textField_2.getText(), textField_3.getText(), textField_4.getText()};
-		return retval;
+		return new String[] {textField.getText(), new String(passwordField_1.getPassword()), new String(passwordField.getPassword()), 
+			textField_1.getText(), textField_2.getText(), textField_3.getText(), textField_4.getText()};
 	}
 	
 	public void setWarnings(boolean uTaken, boolean pMatch, boolean eTaken, boolean eMatch) {

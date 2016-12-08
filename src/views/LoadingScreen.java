@@ -33,7 +33,8 @@ public class LoadingScreen extends JPanel implements IView {
 	
 	@Override
 	public void update() {
-		
+		revalidate();
+		repaint();
 	}
 
 	@Override

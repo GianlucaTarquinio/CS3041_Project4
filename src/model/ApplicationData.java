@@ -78,11 +78,15 @@ public class ApplicationData {
 	}
 	
 	public User getUser(String username) {
-		if(users.containsKey(username)) {
-			return users.get(username);
-		} else {
-			return null;
+		return users.get(username);
+	}
+	
+	public boolean isValidUser(String username, String password) {
+		User user = getUser(username);
+		if(user != null && user.verifyPassword(password)) {
+			return true;
 		}
+		return false;
 	}
 	
 	public void printCDs() {
